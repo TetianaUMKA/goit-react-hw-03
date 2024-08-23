@@ -14,9 +14,14 @@ function App() {
   // const [contact, setContact] = useState(contacts);
 
   const [contactFilter, setContactFilter] = useState("");
+
   const filteredContacts = contacts.filter((contact) => {
     return contact.name.toLowerCase().includes(contactFilter.toLowerCase());
   });
+
+  const handleSetContactFilter = (newContactFilter) => {
+    setContactFilter(newContactFilter);
+  };
 
   return (
     <>
@@ -25,7 +30,7 @@ function App() {
         {/* <ContactForm /> */}
         <SearchBox
           value={contactFilter}
-          onsetContactFilter={setContactFilter}
+          onHandleSetContactFilter={handleSetContactFilter}
         />
         <ContactList visibleListContacts={filteredContacts || contacts} />
       </div>
