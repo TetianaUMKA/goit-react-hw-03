@@ -13,12 +13,12 @@ const contacts = [
 ];
 
 function App() {
-  const [, setContacts] = useState(contacts);
+  const [contact, setContacts] = useState(contacts);
 
   const [contactFilter, setContactFilter] = useState("");
 
-  const filteredContacts = contacts.filter((contact) => {
-    return contact.name.toLowerCase().includes(contactFilter.toLowerCase());
+  const filteredContacts = contact.filter((eachContact) => {
+    return eachContact.name.toLowerCase().includes(contactFilter.toLowerCase());
   });
 
   const handleSetContactFilter = (newContactFilter) => {
@@ -26,16 +26,17 @@ function App() {
   };
 
   const addContact = (formValues) => {
-    setContacts((allContact) => {
+    setContacts((contacts) => {
       const newContact = {
         id: nanoid(),
         name: formValues.username,
         number: formValues.number,
       };
       console.log(newContact);
-      return [...allContact, newContact];
+      return [...contacts, newContact];
     });
   };
+
   return (
     <>
       <div>
