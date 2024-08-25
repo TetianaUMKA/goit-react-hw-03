@@ -5,7 +5,7 @@ import ContactList from "../ContactList/ContactList";
 import SearchBox from "../SearchBox/SearchBox";
 import ContactForm from "../ContactForm/ContactForm";
 
-const contacts = [
+const phonebookContacts = [
   { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
   { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
   { id: "id-3", name: "Eden Clements", number: "645-17-79" },
@@ -13,12 +13,12 @@ const contacts = [
 ];
 
 function App() {
-  const [contact, setContacts] = useState(contacts);
+  const [contacts, setContacts] = useState(phonebookContacts);
 
   const [contactFilter, setContactFilter] = useState("");
 
-  const filteredContacts = contact.filter((eachContact) => {
-    return eachContact.name.toLowerCase().includes(contactFilter.toLowerCase());
+  const filteredContacts = contacts.filter((contact) => {
+    return contact.name.toLowerCase().includes(contactFilter.toLowerCase());
   });
 
   const handleSetContactFilter = (newContactFilter) => {
