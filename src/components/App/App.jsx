@@ -37,6 +37,10 @@ function App() {
     });
   };
 
+  const deleteContact = (id) => {
+    setContacts((contacts) => contacts.filter((contact) => contact.id !== id));
+  };
+
   return (
     <>
       <div>
@@ -46,7 +50,10 @@ function App() {
           value={contactFilter}
           onHandleSetContactFilter={handleSetContactFilter}
         />
-        <ContactList visibleListContacts={filteredContacts} />
+        <ContactList
+          visibleListContacts={filteredContacts}
+          onDeleteContact={deleteContact}
+        />
       </div>
     </>
   );
