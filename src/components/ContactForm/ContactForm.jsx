@@ -7,13 +7,12 @@ export default function ContactForm({ onAddContact }) {
   const id = useId();
 
   const formSchema = Yup.object().shape({
-    username: Yup.string("Must be a number")
-      .min(3, "Must be 130 characters or more!")
-      .max(50, "Must be 50 characters or less!")
+    username: Yup.string()
+      .min(3, "Must be 3 letters or more!")
+      .max(50, "Must be 50 letters or less!")
       .required("Required"),
     number: Yup.string()
-      .min(3, "Must be 3 characters or more!")
-      .max(50, "Must be 50 characters or less!")
+      .matches(/^\d{3}-\d{2}-\d{2}$/, "Please enter a valid number.")
       .required("Required"),
   });
 
