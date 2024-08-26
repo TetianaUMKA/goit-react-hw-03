@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 
 import ContactList from "../ContactList/ContactList";
@@ -12,8 +12,10 @@ const phonebookContacts = [
   { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
 ];
 
+const savedContacts = JSON.parse(localStorage.getItem("contacts"));
+
 function App() {
-  const [contacts, setContacts] = useState(phonebookContacts);
+  const [contacts, setContacts] = useState(savedContacts || phonebookContacts);
 
   const [contactFilter, setContactFilter] = useState("");
 
@@ -40,6 +42,10 @@ function App() {
   const deleteContact = (id) => {
     setContacts((contacts) => contacts.filter((contact) => contact.id !== id));
   };
+
+  useEffect(() => {
+    localStorage.setItem("contacts", JSON.stringify(contacts), [contacts]);
+  });
 
   return (
     <>
