@@ -1,12 +1,11 @@
 import { useId } from "react";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { ErrorMessage } from "formik";
 
 export default function ContactForm({ onAddContact }) {
   const id = useId();
 
-  const formSchema = Yup.object().shape({
+  const FormSchema = Yup.object().shape({
     username: Yup.string()
       .min(3, "Must be 3 letters or more!")
       .max(50, "Must be 50 letters or less!")
@@ -25,7 +24,7 @@ export default function ContactForm({ onAddContact }) {
     <Formik
       initialValues={{ username: "", number: "" }}
       onSubmit={handleSubmit}
-      validationSchema={formSchema}
+      validationSchema={FormSchema}
     >
       <Form>
         <label htmlFor={`${id}-name`}>Name</label>
