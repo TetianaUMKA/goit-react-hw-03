@@ -32,7 +32,12 @@ export default function ContactForm({ onAddContact }) {
         <ErrorMessage name="username" component="span" />
 
         <label htmlFor={`${id}-number`}>Number</label>
-        <Field type="text" name="number" id={`${id}-number`}></Field>
+        <Field
+          type="text"
+          name="number"
+          id={`${id}-number`}
+          placeholder="000-00-00"
+        ></Field>
         <ErrorMessage name="number" component="span" />
 
         <button type="submit">Submit</button>
