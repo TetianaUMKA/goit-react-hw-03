@@ -29,7 +29,8 @@ function App() {
     setContacts((contacts) => {
       const newContact = {
         id: nanoid(),
-        name: formValues.username,
+        name:
+          formValues.username[0].toUpperCase() + formValues.username.slice(1),
         number: formValues.number,
       };
       console.log(newContact);
