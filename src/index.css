@@ -2,6 +2,7 @@ body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  color: #0e1d18;
 }
 
 h1,
@@ -18,4 +19,23 @@ ul,
 ol {
   margin: 0;
   padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  display: block;
+  padding: 6px 8px;
+  color: #ffffff;
+  background-color: rgb(59, 99, 87);
+  border: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus {
+  background-color: rgb(52, 88, 77);
 }
