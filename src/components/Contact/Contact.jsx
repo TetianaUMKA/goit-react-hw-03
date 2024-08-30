@@ -11,15 +11,11 @@ export default function Contact({
     <>
       <div>
         <div className={css.contactData}>
-          <span>
-            <HiUser />
-          </span>
+          <HiUser />
           <p>{name}</p>
         </div>
         <div className={css.contactData}>
-          <span>
-            <HiPhone />
-          </span>
+          <HiPhone />
           <p>{number}</p>
         </div>
       </div>
