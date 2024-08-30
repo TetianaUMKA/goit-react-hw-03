@@ -1,5 +1,7 @@
 import { useId } from "react";
 
+import css from "./SearchBox.module.css";
+
 export default function SearchBox({ value, onHandleSetContactFilter }) {
   const id = useId();
 
@@ -8,14 +10,14 @@ export default function SearchBox({ value, onHandleSetContactFilter }) {
   };
 
   return (
-    <div>
+    <div className={css.container}>
       <label htmlFor={`${id}-search`}>Find contacts name by name</label>
       <input
         type="text"
         value={value}
         onChange={handleChange}
         id={`${id}-search`}
-      />
+      />{" "}
     </div>
   );
 }
