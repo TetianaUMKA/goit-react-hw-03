@@ -1,6 +1,7 @@
 import { useId } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { nanoid } from "nanoid";
 
 import css from "./ContactForm.module.css";
 
@@ -18,7 +19,22 @@ export default function ContactForm({ onAddContact }) {
   });
 
   const handleSubmit = (values, actions) => {
-    onAddContact(values);
+    const nameSpace = values.username.indexOf(" ");
+    const changedNameFirstLetters =
+      nameSpace > 0
+        ? values.username[0].toUpperCase() +
+          values.username.slice(1, nameSpace + 1) +
+          values.username[nameSpace + 1].toUpperCase() +
+          values.username.slice(nameSpace + 2)
+        : values.username[0].toUpperCase() + values.username.slice(1);
+
+    const newContact = {
+      id: nanoid(),
+      name: changedNameFirstLetters,
+      number: values.number,
+    };
+
+    onAddContact(newContact);
     actions.resetForm();
   };
 

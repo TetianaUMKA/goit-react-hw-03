@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { nanoid } from "nanoid";
 
 import ContactList from "../ContactList/ContactList";
 import SearchBox from "../SearchBox/SearchBox";
@@ -27,22 +26,8 @@ function App() {
     setContactFilter(newContactFilter);
   };
 
-  const addContact = (formValues) => {
-    const nameSpace = formValues.username.indexOf(" ");
-    const changedNameFirstLetters =
-      nameSpace > 0
-        ? formValues.username[0].toUpperCase() +
-          formValues.username.slice(1, nameSpace + 1) +
-          formValues.username[nameSpace + 1].toUpperCase() +
-          formValues.username.slice(nameSpace + 2)
-        : formValues.username[0].toUpperCase() + formValues.username.slice(1);
-
+  const addContact = (newContact) => {
     setContacts((contacts) => {
-      const newContact = {
-        id: nanoid(),
-        name: changedNameFirstLetters,
-        number: formValues.number,
-      };
       console.log(newContact);
       return [...contacts, newContact];
     });
